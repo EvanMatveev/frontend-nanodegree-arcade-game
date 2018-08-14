@@ -17,6 +17,8 @@ class Enemy {
   }
 }
 
+let allEnemies = [];
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 // You should multiply any movement by the dt parameter
@@ -33,7 +35,15 @@ class Player {
     this.y = y;
     this.sprite = "images/char-boy.png";
   }
+  update(dt) {
+    this.x = this.speed * dt;
+  }
+  render(dt) {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
 }
+
+let player = new Player(14, 14);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
